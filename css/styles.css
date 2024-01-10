@@ -1,0 +1,26 @@
+/* declaring variables */
+:root {
+    --font-family-heading: 'Rubik Doodle Shadow', system-ui;
+    --font-family-main: 'Josefin Slab', serif;
+
+}
+
+/* background */
+body {
+    background-color: blanchedalmond;
+    background-image: url("img_background2.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: scroll;
+}
+
+/* formatting headings */
+h1 {
+    font-family: var(--font-family-heading);
+    font-size: 50px;
+}
+
+.javascript {
+    font-family: var(--font-family-main);
+    font-size: 22px;
+}
