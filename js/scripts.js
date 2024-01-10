@@ -5,3 +5,7 @@ let pokemonList = [
     {name: 'Eevee', height: 5, type: ['normal']},
     {name: 'Pikachu', height: 4, type: ['electric']}
 ];
+
+for (let i = 0; i < pokemonList.length; i++){
+    document.write('pokemonList.name');
+}
