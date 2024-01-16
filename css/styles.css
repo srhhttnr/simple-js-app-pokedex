@@ -8,10 +8,6 @@
 /* background */
 body {
     background-color: blanchedalmond;
-    background-image: url("img_background2.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: scroll;
 }
 
 /* formatting headings */
