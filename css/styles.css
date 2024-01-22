@@ -20,3 +20,16 @@ h1 {
     font-family: var(--font-family-main);
     font-size: 22px;
 }
+
+.pokemon-button {
+    font-family: var(--font-family-main);
+    font-size: 20px;
+    display: inline-block;
+    padding: 20px 50px;
+    margin: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    background-color: brown;
+    color: black;
+    border: 2px solid maroon;
+}
