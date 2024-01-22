@@ -39,4 +39,11 @@ pokemonRepository.getAll().forEach(function(pokemon){
   button.classList.add('pokemonButton');
   listItem.appendChild(button);
   ulOfPokemon.appendChild(listItem);
+
+  if (pokemon.height > 0.5) {
+    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + ' Wow, that\'s a big pokemon! </p>');
+  } else if (pokemon.height < 0.5) {
+    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + ' Wow, that\'s a small pokemon! </p>');
+  } else {
+    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + '</p>');
 });
