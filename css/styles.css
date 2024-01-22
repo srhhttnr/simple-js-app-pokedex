@@ -23,8 +23,10 @@ h1 {
 
 .pokemon-list {
     width: 50%;
-    justify-content: center;
-    align-items: space-between;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .pokemon-button {
