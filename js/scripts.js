@@ -20,6 +20,7 @@ let pokemonRepository = (function () {
       return pokemonList;
     }
 
+    // function that adds a list item to the list of pokemon
     function addListItem(pokemon) {
       if (pokemon.height > 0.5) {
         document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + ' Wow, that\'s a big pokemon! </p>');
@@ -32,7 +33,7 @@ let pokemonRepository = (function () {
     return {
       getAll: getAll,
       add: add,
-      addListItem : addListItem
+      addListItem : addListItem,
     }
 })();
   
@@ -45,7 +46,7 @@ pokemonRepository.getAll().forEach(function(pokemon){
   let ulOfPokemon = document.querySelector('.pokemon-list');
   let listItem = document.createElement('li');
   let button = document.createElement('button');
-  button.innerText = `$pokemon.name`;
+  button.innerText = 'pokemon';
   button.classList.add('pokemon-button');
   listItem.appendChild(button);
   ulOfPokemon.appendChild(listItem);
