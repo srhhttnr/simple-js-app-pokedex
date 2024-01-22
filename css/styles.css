@@ -13,6 +13,7 @@ body {
 h1 {
     font-family: var(--font-family-heading);
     font-size: 50px;
+    display: flex;
     justify-content: center;
 }
 
@@ -22,7 +23,7 @@ h1 {
 }
 
 .pokemon-list {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
@@ -57,7 +58,7 @@ li {
 /* media query for screens smaller than 768px but larger than 576px */
 @media all and (max-width: 768px) and (min-width: 576px) {
     .pokemon-list {
-        width: 75%;
+        width: 100;
     }
 }
 
