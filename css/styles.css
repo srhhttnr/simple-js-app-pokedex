@@ -33,3 +33,7 @@ h1 {
     color: black;
     border: 2px solid maroon;
 }
+
+.li {
+    list-style-type: none;
+}
