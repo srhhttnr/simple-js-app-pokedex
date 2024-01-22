@@ -32,11 +32,11 @@ pokemonRepository.add({
 
 // print all pokemon in the list
 pokemonRepository.getAll().forEach(function(pokemon){
-  if (pokemon.height > 0.5) {
-    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + ' Wow, that\'s a big pokemon! </p>');
-  } else if (pokemon.height < 0.5) {
-    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + ' Wow, that\'s a small pokemon! </p>');
-  } else {
-    document.write('<p>', pokemon.name + ': ' + pokemon.height + ' m;' + '</p>');
-  }
+  let ulOfPokemon = document.querySelector('.pokemon-list');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemon.name;
+  button.classList.add('pokemonButton');
+  listItem.appendChild(button);
+  ulOfPokemon.appendChild(listItem);
 });
