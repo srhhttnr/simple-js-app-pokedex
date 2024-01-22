@@ -20,7 +20,12 @@ let pokemonRepository = (function () {
       return pokemonList;
     }
 
-    // function that adds a list item to the list of pokemon
+    // function that prints the pokemon object to the console
+    function showDetails(pokemon) {
+      console.log(pokemon);
+    }
+
+    // function that adds a list item to the list of pokemon and displays them as buttons, when clicked showDetails() runs
     function addListItem(pokemon) {
       let ulOfPokemon = document.querySelector('.pokemon-list');
       let listItem = document.createElement('li');
@@ -34,15 +39,11 @@ let pokemonRepository = (function () {
       button.addEventListener('click', showDetails(pokemon));
     }
 
-    function showDetails(pokemon) {
-      console.log(pokemon);
-    }
-
     return {
       getAll : getAll,
       add : add,
-      addListItem : addListItem,
       showDetails : showDetails,
+      addListItem : addListItem,
     };
 })();
   
