@@ -34,7 +34,7 @@ h1 {
 .pokemon-button {
     font-family: var(--font-family-main);
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 800;
     display: inline-block;
     padding: 20px 50px;
     margin: 2px 2px;
