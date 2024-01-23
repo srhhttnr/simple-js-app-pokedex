@@ -13,8 +13,8 @@ body {
 h1 {
     font-family: var(--font-family-heading);
     font-size: 50px;
-    display: block;
-    align-items: center;
+    display: flex;
+    justify-self: center;
 }
 
 .javascript {
