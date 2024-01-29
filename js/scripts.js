@@ -60,7 +60,7 @@ let pokemonRepository = (function () {
 
     // function that prints the pokemon object to the console
     function showDetails(item) {
-      pokemonList.loadDetails(item).then(function () {
+      pokemonRepository.loadDetails(item).then(function () {
         console.log(item);
       });
     }
