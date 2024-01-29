@@ -27,9 +27,9 @@ let pokemonRepository = (function () {
     }
 
     // function that prints the pokemon object to the console
-    function showDetails(pokemon) {
-      loadDetails(pokemon).then(function () {
-        console.log(pokemon);
+    function showDetails(item) {
+      pokemonList.loadDetails(item).then(function () {
+        console.log(item);
       });
     }
 
@@ -92,6 +92,7 @@ let pokemonRepository = (function () {
     return {
       getAll : getAll,
       add : add,
+      showDetails : showDetails,
       addListItem : addListItem,
       loadList : loadList,
       loadDetails : loadDetails,
