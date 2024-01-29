@@ -26,36 +26,6 @@ let pokemonRepository = (function () {
       return pokemonList;
     }
 
-    // function that prints the pokemon object to the console
-    function showDetails(item) {
-      pokemonList.loadDetails(item).then(function () {
-        console.log(item);
-      });
-    }
-
-    // function that adds event listener to pokemon button
-    function addEventListenerToPokemonButton(button, pokemon) {
-      button.addEventListener('click', function () {
-        showDetails(pokemon.name);
-      });
-    }
-
-    // function that adds a list item to the list of pokemon and displays them as buttons, when clicked showDetails() runs
-    function addListItem(pokemon) {
-      let ulOfPokemon = document.querySelector('.pokemon-list');
-      let listItem = document.createElement('li');
-      listItem.classList.add('pokemon-list-item');
-
-      let button = document.createElement('button');
-      button.innerText = pokemon.name;
-      button.classList.add('pokemon-button');
-
-      ulOfPokemon.appendChild(listItem);
-      listItem.appendChild(button);
-
-      addEventListenerToPokemonButton(button, pokemon);
-    }
-
     // function that loads each pokemon from the pokemon API
     function loadList() {
       return fetch(apiUrl).then(function (response) {
@@ -86,6 +56,36 @@ let pokemonRepository = (function () {
       }).catch(function (e) {
         console.error(e);
       });
+    }
+
+    // function that prints the pokemon object to the console
+    function showDetails(item) {
+      pokemonList.loadDetails(item).then(function () {
+        console.log(item);
+      });
+    }
+
+    // function that adds event listener to pokemon button
+    function addEventListenerToPokemonButton(button, pokemon) {
+      button.addEventListener('click', function () {
+        showDetails(pokemon.name);
+      });
+    }
+
+    // function that adds a list item to the list of pokemon and displays them as buttons, when clicked showDetails() runs
+    function addListItem(pokemon) {
+      let ulOfPokemon = document.querySelector('.pokemon-list');
+      let listItem = document.createElement('li');
+      listItem.classList.add('pokemon-list-item');
+
+      let button = document.createElement('button');
+      button.innerText = pokemon.name;
+      button.classList.add('pokemon-button');
+
+      ulOfPokemon.appendChild(listItem);
+      listItem.appendChild(button);
+
+      addEventListenerToPokemonButton(button, pokemon);
     }
 
     // return statements
