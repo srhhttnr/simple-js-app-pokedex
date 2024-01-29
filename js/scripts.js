@@ -44,6 +44,8 @@ let pokemonRepository = (function () {
     }
 
     // function that shows loading message while fetching data
+    let loader = document.querySelector('.loader');
+
     function showLoadingMessage () {
       loader.classList.add("display");
     }
