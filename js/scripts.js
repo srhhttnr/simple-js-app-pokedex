@@ -58,20 +58,6 @@ let pokemonRepository = (function () {
       });
     }
 
-    // function that prints the pokemon object to the console
-    function showDetails(pokemon) {
-      loadDetails(pokemon).then(function () {
-        console.log(pokemon);
-      });
-    }
-
-    // function that adds event listener to pokemon button
-    function addEventListenerToPokemonButton(button, pokemon) {
-      button.addEventListener('click', function () {
-        showDetails(pokemon);
-      });
-    }
-
     // function that adds a list item to the list of pokemon and displays them as buttons, when clicked showDetails() runs
     function addListItem(pokemon) {
       let ulOfPokemon = document.querySelector('.pokemon-list');
@@ -85,7 +71,17 @@ let pokemonRepository = (function () {
       ulOfPokemon.appendChild(listItem);
       listItem.appendChild(button);
 
-      addEventListenerToPokemonButton(button, pokemon);
+      // add event listener to button
+      button.addEventListener("click", function(event) {
+        showDetails(pokemon);
+      });
+    }
+
+    // function that prints the pokemon object to the console
+    function showDetails(pokemon) {
+      loadDetails(pokemon).then(function () {
+        console.log(pokemon);
+      });
     }
 
     // return statements
