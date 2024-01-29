@@ -44,10 +44,12 @@ let pokemonRepository = (function () {
     }
 
     // function that shows loading message while fetching data
-    let loader = document.querySelector('.loader');
+    let loader = document.querySelector('#loader');
+    loader.innertext = "loading";
 
     function showLoadingMessage () {
       loader.classList.add("display");
+      console.log(loader);
     }
 
     // function that hides loading message after data is fetched
