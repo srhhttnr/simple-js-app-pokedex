@@ -1,10 +1,10 @@
 // IIFE around array with Pokemon List
 let pokemonRepository = (function () {
+    // empty array for pokemon to be added into as objects
     let pokemonList = [];
-    //[{ name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison'] },{ name: 'Squirtle', height: 0.5, type: ['water'] },{ name: 'Jigglypuff', height: 0.5, type: ['fairy', 'normal'] },{ name: 'Eevee', height: 0.5, type: ['normal'] },{ name: 'Pikachu', height: 0.4, type: ['electric'] },]
 
-    // pokemon API
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    // pokemon API URL
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
     
     // function that adds pokemon to the array
