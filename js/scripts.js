@@ -6,7 +6,6 @@ let pokemonRepository = (function () {
     // pokemon API URL
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    
     // function that adds pokemon to the array
     function add(pokemon) {
       if (
@@ -76,10 +75,10 @@ let pokemonRepository = (function () {
       });
     }
 
+    let modalContainer = document.querySelector('#modal-container');
+
     // function that opens modal
-    function openModal(pokemon) {
-      let modalContainer = document.querySelector('#modal-container');
-      
+    function openModal(pokemon) {      
       // event listener that closes the modal when the user clicks anywhere off the modal
       modalContainer.addEventListener('click', (e) => {
         let target = e.target;
