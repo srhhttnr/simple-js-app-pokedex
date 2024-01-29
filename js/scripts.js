@@ -66,9 +66,9 @@ let pokemonRepository = (function () {
     }
 
     // function that adds event listener to pokemon button
-    function addEventListenerToPokemonButton(button, item) {
+    function addEventListenerToPokemonButton(button, pokemon) {
       button.addEventListener('click', function () {
-        showDetails(item);
+        showDetails(pokemon);
       });
     }
 
@@ -85,7 +85,7 @@ let pokemonRepository = (function () {
       ulOfPokemon.appendChild(listItem);
       listItem.appendChild(button);
 
-      addEventListenerToPokemonButton(button, item);
+      addEventListenerToPokemonButton(button, pokemon);
     }
 
     // return statements
