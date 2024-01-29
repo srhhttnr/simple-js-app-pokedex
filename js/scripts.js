@@ -49,7 +49,7 @@ let pokemonRepository = (function () {
 
     function showLoadingMessage () {
       loader.classList.add("display");
-      console.log(loader);
+      console.log('loader');
     }
 
     // function that hides loading message after data is fetched
