@@ -59,9 +59,9 @@ let pokemonRepository = (function () {
     }
 
     // function that prints the pokemon object to the console
-    function showDetails(item) {
-      loadDetails(item).then(function () {
-        console.log(item);
+    function showDetails(pokemon) {
+      loadDetails(pokemon).then(function () {
+        console.log(pokemon);
       });
     }
 
