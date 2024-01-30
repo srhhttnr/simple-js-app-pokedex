@@ -127,7 +127,14 @@ let pokemonRepository = (function () {
         let pokemonTypes = []
 
         pokemon.types.forEach(function (pokemon) {
-          pokemonTypes = [pokemon.type.name];          
+          if (
+            typeof pokemon.types === 'object' &&
+            "name" in pokemon 
+          ) {
+            pokemonTypes.push(pokemon.type.name);
+          } else {
+            console.log('pokemon type is not correct');
+          }          
         });
 
         let typesElement = document.createElement('p');
