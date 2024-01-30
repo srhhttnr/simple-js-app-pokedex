@@ -127,7 +127,7 @@ let pokemonRepository = (function () {
         let pokemonType = []
 
         pokemon.type.forEach(function (pokemon) {
-          pokemonType = pokemon.type.name;          
+          pokemonType = pokemon.types.name;          
         });
 
         let typeElement = document.createElement('p');
