@@ -129,9 +129,11 @@ let pokemonRepository = (function () {
         function addPokemonTypes() {
           pokemonTypes = pokemon.type.name;
           
-          if (pokemon.type.slot > 1) {
-            pokemonTypes = `${pokemon.type.name}, ${pokemon.type.name}, ${pokemon.type.name}`;
-          }
+          pokemon.type.name.forEach(pokemon) {
+            if (pokemon.type.slot > 1) {
+              pokemonTypes.push(pokemon.type.name);
+            };
+          };
         };
 
         let typesElement = document.createElement('p');
