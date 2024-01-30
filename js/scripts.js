@@ -128,8 +128,7 @@ let pokemonRepository = (function () {
 
         pokemon.types.forEach(function (pokemon) {
           if (
-            typeof pokemon.types === 'object' &&
-            "name" in pokemon 
+            typeof pokemon.types === 'object' 
           ) {
             pokemonTypes.push(pokemon.type.name);
           } else {
