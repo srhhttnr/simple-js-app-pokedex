@@ -129,7 +129,7 @@ let pokemonRepository = (function () {
         function addPokemonTypes() {
           pokemonTypes = pokemon.type.name;
           
-          if (pokemon.type.id > 0) {
+          if (pokemon.type.slot > 1) {
             pokemonTypes = `${pokemon.type.name}, ${pokemon.type.name}, ${pokemon.type.name}`;
           }
         };
