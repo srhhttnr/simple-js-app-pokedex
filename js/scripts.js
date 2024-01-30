@@ -130,8 +130,7 @@ let pokemonRepository = (function () {
           pokemonTypes = pokemon.type.name;
 
           if (pokemonTypes.length > 1) {
-            pokemonTypes = [];
-            pokemon.types.forEach(function () {
+            pokemon.types.forEach(function (pokemon) {
               pokemonTypes.push(pokemon.type.name);
             })
           }
