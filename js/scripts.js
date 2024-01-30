@@ -127,11 +127,11 @@ let pokemonRepository = (function () {
         let pokemonTypes = []
 
         pokemon.types.forEach(function (pokemon) {
-          pokemonTypes = pokemon.type.name;
+          pokemonTypes = pokemon.type.join(", ");
         });
 
         let typesElement = document.createElement('p');
-        typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
+        typesElement.innerText = `Type: ${pokemonTypes}`;
         typesElement.classList.add('types-modal-content')
       
         // append elements to modal content
