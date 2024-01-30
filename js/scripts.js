@@ -124,22 +124,22 @@ let pokemonRepository = (function () {
         heightElement.classList.add('height-modal-content')
 
         // function that reads the types of pokemon from the array fetched from api
-        let pokemonTypes = []
+        let pokemonType = []
 
-        pokemon.types.forEach(function (pokemon) {
-          pokemonTypes = pokemon.type.name;          
+        pokemon.type.forEach(function (pokemon) {
+          pokemonType = pokemon.type.name;          
         });
 
-        let typesElement = document.createElement('p');
-        typesElement.innerText = `Types: ${pokemonTypes}`;
-        typesElement.classList.add('types-modal-content')
+        let typeElement = document.createElement('p');
+        typeElement.innerText = `Type: ${pokemonType}`;
+        typeElement.classList.add('type-modal-content')
       
         // append elements to modal content
         modalContent.appendChild(closeModalButton);
         modalContent.appendChild(nameElement);
         modalContent.appendChild(imageElement);
         modalContent.appendChild(heightElement);
-        modalContent.appendChild(typesElement);
+        modalContent.appendChild(typeElement);
 
         // append modal content to modal container
         modalContainer.appendChild(modalContent);
