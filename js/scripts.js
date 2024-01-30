@@ -126,9 +126,9 @@ let pokemonRepository = (function () {
         // function that reads the types of pokemon from the array fetched from api
         let pokemonTypes = []
 
-        function addPokemonTypes() {
+        pokemon.types.forEach(function (pokemon) {
           pokemonTypes = pokemon.type.name;
-        };
+        });
 
         let typesElement = document.createElement('p');
         typesElement.innerText = `Type: ${pokemonTypes}`;
