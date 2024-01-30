@@ -123,8 +123,15 @@ let pokemonRepository = (function () {
         heightElement.innerText = `Height: ${pokemon.height} m`;
         heightElement.classList.add('height-modal-content')
 
+        // function that reads the types of pokemon from the array fetched from api
+        let pokemonTypes = []
+
+        pokemon.types.forEach(function (pokemon) {
+          pokemonTypes = 'pokemon.type.name';          
+        });
+
         let typesElement = document.createElement('p');
-        typesElement.innerText = `Types: ${pokemon.types}`;
+        typesElement.innerText = `Types: ${pokemonTypes}`;
         typesElement.classList.add('types-modal-content')
       
         // append elements to modal content
