@@ -124,21 +124,18 @@ let pokemonRepository = (function () {
         heightElement.classList.add('height-modal-content')
 
         // function that reads the types of pokemon from the array fetched from api
-        let pokemonTypes = []
-
         pokemon.types.forEach(function (pokemon) {
-          if (
-            typeof pokemon.types === 'object' 
-          ) {
-            pokemonTypes.push(pokemon.type.name);
-          } else {
-            console.log('pokemon type is not correct');
-          }          
+          
+          let pokemonTypes = [];
+
+          pokemonTypes.push(pokemon.type.name); 
+
+          let typesElement = document.createElement('p');
+          typesElement.innerText = `Type: ${pokemonTypes}`;
+          typesElement.classList.add('types-modal-content');
         });
 
-        let typesElement = document.createElement('p');
-        typesElement.innerText = `Type: ${pokemonTypes}`;
-        typesElement.classList.add('types-modal-content')
+        
       
         // append elements to modal content
         modalContent.appendChild(closeModalButton);
