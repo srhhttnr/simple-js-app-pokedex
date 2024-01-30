@@ -105,7 +105,7 @@ li {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
-    background: #2b2b;
+    background: #FFC300;
     padding: 15px;
     width: 50%;
     max-width: 50%;
@@ -119,11 +119,16 @@ li {
     background: none;
     color: #777;
     text-decoration: underline;
+    font-size: 20px;
 }
 
 .modal-close:hover {
     cursor: pointer;
-    box-shadow: 8px 8px 2px 2px #C70039;
+    box-shadow: 8px 8px 2px 2px #ffffff;
+}
+
+.name-modal-title {
+    font-size: 30;
 }
 
 /* media query for screens smaller than 576px */
