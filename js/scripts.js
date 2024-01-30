@@ -16,14 +16,14 @@ let pokemonRepository = (function () {
       } else {
         console.log('pokemon is not correct');
       }
-    }
+    };
 
     // function to return list of pokemon
     function getAll() {
       return pokemonList;
-    }
+    };
 
-    // function that adds a list item to the list of pokemon and displays them as buttons, when clicked showDetails() runs
+    // function that adds a list item to the pokemon array and displays them as buttons, when clicked openModal() runs
     function addListItem(pokemon) {
       let ulOfPokemon = document.querySelector('.pokemon-list');
       let listItem = document.createElement('li');
@@ -38,9 +38,9 @@ let pokemonRepository = (function () {
 
       // add event listener to button
       button.addEventListener("click", function(event) {
-        showDetails(pokemon);
+        openModal(pokemon);
       });
-    }
+    };
 
     // function that loads each pokemon from the pokemon API
     function loadList() {
@@ -58,7 +58,7 @@ let pokemonRepository = (function () {
       }).catch(function (e) {
         console.error(e);
       })
-    }
+    };
 
     // function that loads details of pokemon
     function loadDetails(item) {
@@ -73,26 +73,25 @@ let pokemonRepository = (function () {
       }).catch(function (e) {
         console.error(e);
       });
-    }   
+    };  
   
     let modalContainer = document.querySelector('#modal-container');
 
     // function that opens modal and displays details of pokemon
-    function showDetails(pokemon) {
+    function openModal(pokemon) {
       pokemonRepository.loadDetails(pokemon).then(function () {
         // event listener that closes the modal when the user clicks anywhere off the modal
         modalContainer.addEventListener('click', (e) => {
           let target = e.target;
           if (target === modalContainer) {
-            hideModal();
+            closeModal();
           }
         });
 
         // event listener that closes the modal when the escape key is pressed
         window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector('#modal-container');
           if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-          closeModal();  
+            closeModal();  
           }
         });
     
@@ -118,10 +117,10 @@ let pokemonRepository = (function () {
         imageElement.alt = `Image of ${pokemon.name}`;
 
         let heightElement = document.createElement('p');
-        heightElement = `Height: ${pokemon.height} m`;
+        heightElement.innerText = `Height: ${pokemon.height} m`;
 
         let typesElement = document.createElement('p');
-        typesElement = `Types: ${pokemon.types}`;
+        typesElement.innerText = `Types: ${pokemon.types}`;
       
         // append elements to modal content
         modalContent.appendChild(closeModalButton);
@@ -135,11 +134,10 @@ let pokemonRepository = (function () {
     
         modalContainer.classList.add('is-visible');
       });
-    }
+    };
 
     // function that closes the modal
     function closeModal() {
-      let modalContainer = document.querySelector('#modal-container');
       modalContainer.classList.remove('is-visible');
     };
 
@@ -147,15 +145,13 @@ let pokemonRepository = (function () {
     return {
       getAll : getAll,
       add : add,
-      showDetails : showDetails,
+      openModal : openModal,
       addListItem : addListItem,
       loadList : loadList,
       loadDetails : loadDetails,
     };
 })();
   
-//pokemonRepository.add({name: 'Pidgey', height: 0.3, type: ['flying', 'normal']});
-
 // print all pokemon in the list
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon){
