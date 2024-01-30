@@ -50,10 +50,11 @@ let pokemonRepository = (function () {
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
-            detailsUrl: item.url
+            detailsUrl: item.url,
+            height: item.height,
+            types: item.types
           };
           add(pokemon);
-          console.log(pokemon);
         });
       }).catch(function (e) {
         console.error(e);
@@ -111,16 +112,20 @@ let pokemonRepository = (function () {
         // add elements to modal
         let nameElement = document.createElement('h1');
         nameElement.innerText = pokemon.name;
+        nameElement.classList.add('name-modal-title')
     
         let imageElement = document.createElement('img');
         imageElement.src = pokemon.imageUrl;
         imageElement.alt = `Image of ${pokemon.name}`;
+        imageElement.classList.add('image-modal-content')
 
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height} m`;
+        heightElement.classList.add('height-modal-content')
 
         let typesElement = document.createElement('p');
         typesElement.innerText = `Types: ${pokemon.types}`;
+        typesElement.classList.add('types-modal-content')
       
         // append elements to modal content
         modalContent.appendChild(closeModalButton);
