@@ -127,11 +127,6 @@ li {
     box-shadow: 8px 8px 2px 2px #ffffff;
 }
 
-.name-modal-title {
-    font-size: 30;
-    text-align: center;
-}
-
 /* media query for screens smaller than 576px */
 @media all and (max-width: 576px) {
     .pokemon-list {
