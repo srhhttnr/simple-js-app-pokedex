@@ -40,9 +40,7 @@ let pokemonRepository = (function () {
       listItem.appendChild(button);
 
       // add event listener to button
-      button.addEventListener('click', function() {
-        openModal(pokemon);
-      });
+      button.addEventListener('click', openModal());
     };
 
     // function that loads each pokemon from the pokemon API
@@ -83,6 +81,8 @@ let pokemonRepository = (function () {
       });
     }; 
 
+    let modalContainer = document.querySelector('.modal');
+
     // function that opens modal and displays details of pokemon
     function openModal(pokemon) {
       pokemonRepository.loadDetails(pokemon).then(function () {
@@ -102,14 +102,13 @@ let pokemonRepository = (function () {
         });
     
         // assign variables to modal elements in html file
-        let modalContainer = document.querySelector('.modal');
         let modalContent = document.querySelector('.modal-content');
         let modalHeader = document.querySelector('.modal-header');
         let modalTitle = document.querySelector('modal-title');
         let modalBody = document.querySelector('.modal-body');
     
         // clear all existing modal content
-        modal.innerHTML = '';
+        modalContainer.innerHTML = '';
 
         // add new modal content
         // create button to close modal
