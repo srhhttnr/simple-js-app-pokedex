@@ -112,12 +112,9 @@ let pokemonRepository = (function () {
         // add new modal content
         // create button to close modal
         let closeModalButton = document.querySelector('.close');
-        closeModalButton.classList.add('btn-secondary', 'btn');
-        closeModalButton.innerText = 'close';
-        closeModalButton.addEventListener('click', closeModal);
       
         // add elements to modal
-        let nameElement = document.createElement('h1');
+        let nameElement = document.querySelector('.modal-title');
         nameElement.innerText = pokemon.name;
     
         let imageElement = document.createElement('img');
@@ -144,14 +141,13 @@ let pokemonRepository = (function () {
         let pokemonAbilities = [];
 
         pokemon.abilities.forEach(function (pokemon) {
-          pokemonAbilities.push(pokemon.abilities.name);
+          pokemonAbilities.push(pokemon.ability.name);
         });
 
         let abilitiesElement = document.createElement('p');
         abilitiesElement.innerText = `Abilities: ${pokemonAbilities.join(', ')}`;
       
         // append elements to modal header/body
-        modalTitle.appendChild(nameElement);
         modalHeader.appendChild(modalTitle);
         modalHeader.appendChild(closeModalButton);
         modalBody.appendChild(imageElement);
