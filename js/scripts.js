@@ -26,12 +26,15 @@ let pokemonRepository = (function () {
     // function that adds a list item to the pokemon array and displays them as buttons, when clicked openModal() runs
     function addListItem(pokemon) {
       let ulOfPokemon = document.querySelector('.pokemon-list');
+      ulOfPokemon.classList.add('list-group');
       let listItem = document.createElement('li');
-      listItem.classList.add('pokemon-list-item');
+      listItem.classList.add('pokemon-list-item', 'list-group-item');
 
       let button = document.createElement('button');
       button.innerText = pokemon.name;
-      button.classList.add('pokemon-button', 'btn-primary');
+      button.classList.add('pokemon-button', 'btn-primary', 'btn');
+      button.setAttribute('data-target', 'list-group-item');
+      button.setAttribute('data-toggle', '#modal');
 
       ulOfPokemon.appendChild(listItem);
       listItem.appendChild(button);
@@ -74,9 +77,7 @@ let pokemonRepository = (function () {
       }).catch(function (e) {
         console.error(e);
       });
-    };  
-  
-    let modalContainer = document.querySelector('#modal-container');
+    }; 
 
     // function that opens modal and displays details of pokemon
     function openModal(pokemon) {
@@ -96,32 +97,33 @@ let pokemonRepository = (function () {
           }
         });
     
+        // assign variables to modal elements in html file
+        let modalContainer = document.querySelector('.modal');
+        let modalContent = document.querySelector('.modal-content');
+        let modalHeader = document.querySelector('.modal-header');
+        let modalTitle = document.querySelector('modal-title');
+        let modalBody = document.querySelector('.modal-body');
+    
         // clear all existing modal content
-        modalContainer.innerHTML = '';
-    
-        let modalContent = document.createElement('div');
-        modalContent.classList.add('modal-content');
-    
+        modal.innerHTML = '';
+
         // add new modal content
         // create button to close modal
-        let closeModalButton = document.createElement('button');
-        closeModalButton.classList.add('modal-close');
+        let closeModalButton = document.querySelector('.close');
+        closeModalButton.classList.add('btn-secondary', 'btn');
         closeModalButton.innerText = 'close';
         closeModalButton.addEventListener('click', closeModal);
       
         // add elements to modal
         let nameElement = document.createElement('h1');
         nameElement.innerText = pokemon.name;
-        nameElement.classList.add('name-modal-title');
     
         let imageElement = document.createElement('img');
         imageElement.src = pokemon.imageUrl;
         imageElement.alt = `Image of ${pokemon.name}`;
-        imageElement.classList.add('image-modal-content');
 
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height} m`;
-        heightElement.classList.add('height-modal-content');
 
         // function that reads the types of pokemon from the array fetched from api
         let pokemonTypes = [];
@@ -132,16 +134,20 @@ let pokemonRepository = (function () {
 
         let typesElement = document.createElement('p');
         typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
-        typesElement.classList.add('types-modal-content');
       
-        // append elements to modal content
-        modalContent.appendChild(closeModalButton);
-        modalContent.appendChild(nameElement);
-        modalContent.appendChild(imageElement);
-        modalContent.appendChild(heightElement);
-        modalContent.appendChild(typesElement);
+        // append elements to modal header/body
+        modalTitle.appendChild(nameElement);
+        modalHeader.appendChild(modalTitle);
+        modalHeader.appendChild(closeModalButton);
+        modalBody.appendChild(imageElement);
+        modalBody.appendChild(heightElement);
+        modalBody.appendChild(typesElement);
 
-        // append modal content to modal container
+        //append modal header/body to modal content
+        modalContent.appendChild(modalHeader);
+        modalContent.appendChild(modalBody);
+
+        // append modal content to modal
         modalContainer.appendChild(modalContent);
     
         modalContainer.classList.add('is-visible');
