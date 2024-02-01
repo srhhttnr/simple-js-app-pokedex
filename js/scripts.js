@@ -28,19 +28,22 @@ let pokemonRepository = (function () {
       let ulOfPokemon = document.querySelector('.pokemon-list');
       ulOfPokemon.classList.add('list-group');
       let listItem = document.createElement('li');
-      listItem.classList.add('pokemon-list-item', 'list-group-item');
+      listItem.classList.add('list-group-item');
+
+      ulOfPokemon.appendChild(listItem);
 
       let button = document.createElement('button');
       button.innerText = pokemon.name;
       button.classList.add('pokemon-button', 'btn-primary', 'btn');
-      button.setAttribute('data-target', 'list-group-item');
+      button.setAttribute('data-target', '#modal');
       button.setAttribute('data-toggle', 'modal');
 
-      ulOfPokemon.appendChild(listItem);
       listItem.appendChild(button);
 
       // add event listener to button
-      button.addEventListener('click', openModal());
+      button.addEventListener('click', function() {
+        openModal(pokemon);
+      });
     };
 
     // function that loads each pokemon from the pokemon API
@@ -51,11 +54,7 @@ let pokemonRepository = (function () {
         json.results.forEach(function (item) {
           let pokemon = {
             name : item.name,
-            detailsUrl : item.url,
-            height : item.height,
-            weight : item.weight,
-            types : item.types,
-            abilities : item.abilities,
+            detailsUrl : item.url
           };
           add(pokemon);
         });
