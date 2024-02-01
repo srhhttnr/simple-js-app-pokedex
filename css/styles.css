@@ -59,7 +59,7 @@ li {
     list-style: none;
 }
 
-#modal-container {
+.modal {
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -80,7 +80,7 @@ li {
     text-align: center;
 }
   
-#modal-container.is-visible {
+.modal.is-visible {
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -101,7 +101,7 @@ li {
     text-align: center;
 }
   
-.modal-content {
+.modal-body {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
@@ -112,7 +112,7 @@ li {
     text-align: center;
 }
   
-.modal-close {
+.close {
     float: right;
     appearance: none;
     border: 0;
@@ -122,9 +122,8 @@ li {
     font-size: 20px;
 }
 
-.modal-close:hover {
+.close:hover {
     cursor: pointer;
-    box-shadow: 8px 8px 2px 2px #ffffff;
 }
 
 /* media query for screens smaller than 576px */
