@@ -23,7 +23,7 @@ let pokemonRepository = (function () {
       return pokemonList;
     };
 
-    // function that adds a list item to the pokemon array and displays them as buttons, when clicked openModal() runs
+    // function that adds a list item to the pokemon array and displays them as buttons, when clicked showModal() runs
     function addListItem(pokemon) {
       let ulOfPokemon = document.querySelector('.pokemon-list');
       ulOfPokemon.classList.add('list-group');
@@ -40,9 +40,9 @@ let pokemonRepository = (function () {
 
       listItem.appendChild(button);
 
-      // add event listener to button
+      // add event listener to button that shows modal when button is clicked
       button.addEventListener('click', function() {
-        openModal(pokemon);
+        showModal(pokemon);
       });
     };
 
@@ -82,21 +82,21 @@ let pokemonRepository = (function () {
 
     let modalContainer = document.querySelector('.modal');
 
-    // function that opens modal and displays details of pokemon
-    function openModal(pokemon) {
+    // function that shows modal and displays details of pokemon
+    function showModal(pokemon) {
       pokemonRepository.loadDetails(pokemon).then(function () {
-        // event listener that closes the modal when the user clicks anywhere off the modal
+        // event listener that hides the modal when the user clicks anywhere off the modal
         modalContainer.addEventListener('click', (e) => {
           let target = e.target;
           if (target === modalContainer) {
-            closeModal();
+            hideModal();
           }
         });
 
-        // event listener that closes the modal when the escape key is pressed
+        // event listener that hides the modal when the escape key is pressed
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            closeModal();  
+            hideModal();  
           }
         });
     
@@ -167,16 +167,23 @@ let pokemonRepository = (function () {
       });
     };
 
-    // function that closes the modal
-    function closeModal() {
+    // function that hides the modal
+    function hideModal() {
       modalContainer.classList.remove('is-visible');
     };
+
+    // function that gives you the previous pokemon in array
+    function previousPokemon(pokemon) {
+
+    };
+
+    // function that gives you the next pokemon in array
 
     // return statements
     return {
       getAll : getAll,
       add : add,
-      openModal : openModal,
+      showModal : showModal,
       addListItem : addListItem,
       loadList : loadList,
       loadDetails : loadDetails,
