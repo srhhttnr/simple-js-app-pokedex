@@ -34,13 +34,13 @@ let pokemonRepository = (function () {
       button.innerText = pokemon.name;
       button.classList.add('pokemon-button', 'btn-primary', 'btn');
       button.setAttribute('data-target', 'list-group-item');
-      button.setAttribute('data-toggle', '#modal');
+      button.setAttribute('data-toggle', 'modal');
 
       ulOfPokemon.appendChild(listItem);
       listItem.appendChild(button);
 
       // add event listener to button
-      button.addEventListener("click", function(event) {
+      button.addEventListener('click', function() {
         openModal(pokemon);
       });
     };
@@ -52,10 +52,12 @@ let pokemonRepository = (function () {
       }).then(function (json) {
         json.results.forEach(function (item) {
           let pokemon = {
-            name: item.name,
-            detailsUrl: item.url,
-            height: item.height,
-            types: item.types
+            name : item.name,
+            detailsUrl : item.url,
+            height : item.height,
+            weight : item.weight,
+            types : item.types,
+            abilities : item.abilities,
           };
           add(pokemon);
         });
@@ -73,7 +75,9 @@ let pokemonRepository = (function () {
         // add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
+        item.weight = details.weight;
         item.types = details.types;
+        item.abilities = details.abilities;
       }).catch(function (e) {
         console.error(e);
       });
@@ -125,6 +129,9 @@ let pokemonRepository = (function () {
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height} m`;
 
+        let weightElement = document.createAttribute('p');
+        weightElement.innerText = `Weight: ${pokemon.weight} kg`;
+
         // function that reads the types of pokemon from the array fetched from api
         let pokemonTypes = [];
 
@@ -134,6 +141,16 @@ let pokemonRepository = (function () {
 
         let typesElement = document.createElement('p');
         typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
+
+        // function that reads the abilities from the array fetched from api
+        let pokemonAbilities = [];
+
+        pokemon.abilities.forEach(function (pokemon) {
+          pokemonAbilities.push(pokemon.abilities.name);
+        });
+
+        let abilitiesElement = document.createElement('p');
+        abilitiesElement.innerText = `Abilities: ${pokemonAbilities.join(', ')}`;
       
         // append elements to modal header/body
         modalTitle.appendChild(nameElement);
@@ -141,7 +158,9 @@ let pokemonRepository = (function () {
         modalHeader.appendChild(closeModalButton);
         modalBody.appendChild(imageElement);
         modalBody.appendChild(heightElement);
+        modalBody.appendChild(weightElement);
         modalBody.appendChild(typesElement);
+        modalBody.appendChild(abilitiesElement);
 
         //append modal header/body to modal content
         modalContent.appendChild(modalHeader);
