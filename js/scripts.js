@@ -131,7 +131,7 @@ let pokemonRepository = (function () {
         });
 
         let typesElement = document.createElement('p');
-        typesElement.innerText = `Type: ${pokemonTypes}`;
+        typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
         typesElement.classList.add('types-modal-content')
       
         // append elements to modal content
