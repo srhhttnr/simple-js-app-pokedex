@@ -11,11 +11,46 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://pokeapi.co/" target="blank">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://pokedex.org/" target="blank">Official Pokedex</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="header">
       <h1>Pokemon List</h1>
     </div>
-    <div id="modal-container"></div>
-    <ul class="pokemon-list"></ul>
+    <!-- modal for each pokemon when button is clicked -->
+    <div class="modal" id="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><!-- pokemon name for modal title goes here --></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <!-- button that closes modal -->
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- pokemon details for modal body go here -->
+          </div>
+        </div>
+      </div>
+    </div>    
+    <ul class="pokemon-list"><!-- list of pokemon as buttons --></ul>
     <div class="javascript">
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
