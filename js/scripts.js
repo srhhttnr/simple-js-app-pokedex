@@ -103,7 +103,7 @@ let pokemonRepository = (function () {
         // assign variables to modal elements in html file
         let modalContent = document.querySelector('.modal-content');
         let modalHeader = document.querySelector('.modal-header');
-        let modalTitle = document.querySelector('modal-title');
+        let modalTitle = document.querySelector('.modal-title');
         let modalBody = document.querySelector('.modal-body');
     
         // clear all existing modal content
@@ -114,7 +114,7 @@ let pokemonRepository = (function () {
         let closeModalButton = document.querySelector('.close');
       
         // add elements to modal
-        let nameElement = document.querySelector('.modal-title');
+        let nameElement = document.createElement('h1');
         nameElement.innerText = pokemon.name;
     
         let imageElement = document.createElement('img');
@@ -148,6 +148,7 @@ let pokemonRepository = (function () {
         abilitiesElement.innerText = `Abilities: ${pokemonAbilities.join(', ')}`;
       
         // append elements to modal header/body
+        modalTitle.appendChild(nameElement);
         modalHeader.appendChild(modalTitle);
         modalHeader.appendChild(closeModalButton);
         modalBody.appendChild(imageElement);
@@ -172,12 +173,15 @@ let pokemonRepository = (function () {
       modalContainer.classList.remove('is-visible');
     };
 
-    // function that gives you the previous pokemon in array
-    function previousPokemon(pokemon) {
+    // // function that gives you the previous pokemon in array
+    // function previousPokemon(pokemon) {
 
-    };
+    // };
 
-    // function that gives you the next pokemon in array
+    // // function that gives you the next pokemon in array
+    // function nextPokemon(pokemon) {
+
+    // };
 
     // return statements
     return {
