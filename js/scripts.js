@@ -25,12 +25,12 @@ let pokemonRepository = (function () {
 
     // function that adds a list item to the pokemon array and displays them as buttons, when clicked showModal() runs
     function addListItem(pokemon) {
-      let ulOfPokemon = document.querySelector('.pokemon-list');
-      ulOfPokemon.classList.add('list-group');
+      let pokemonList = document.querySelector('.pokemon-list');
+      pokemonList.classList.add('list-group');
       let listItem = document.createElement('li');
       listItem.classList.add('list-group-item');
 
-      ulOfPokemon.appendChild(listItem);
+      pokemonList.appendChild(listItem);
 
       let button = document.createElement('button');
       button.innerText = pokemon.name;
@@ -108,6 +108,8 @@ let pokemonRepository = (function () {
     
         // clear all existing modal content
         modalContainer.innerHTML = '';
+        modalHeader.innerHTML = '';
+        modalBody.innerHTML = '';
 
         // add new modal content
         // create button to close modal
@@ -115,17 +117,17 @@ let pokemonRepository = (function () {
       
         // add elements to modal
         let nameElement = document.createElement('h1');
-        nameElement.innerText = pokemon.name;
+        nameElement.innerHTML = pokemon.name;
     
         let imageElement = document.createElement('img');
         imageElement.src = pokemon.imageUrl;
         imageElement.alt = `Image of ${pokemon.name}`;
 
         let heightElement = document.createElement('p');
-        heightElement.innerText = `Height: ${pokemon.height} m`;
+        heightElement.innerHTML = `Height: ${pokemon.height} m`;
 
         let weightElement = document.createAttribute('p');
-        weightElement.innerText = `Weight: ${pokemon.weight} kg`;
+        weightElement.innerHTML = `Weight: ${pokemon.weight} kg`;
 
         // function that reads the types of pokemon from the array fetched from api
         let pokemonTypes = [];
@@ -135,7 +137,7 @@ let pokemonRepository = (function () {
         });
 
         let typesElement = document.createElement('p');
-        typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
+        typesElement.innerHTML = `Type: ${pokemonTypes.join(', ')}`;
 
         // function that reads the abilities from the array fetched from api
         let pokemonAbilities = [];
@@ -145,7 +147,7 @@ let pokemonRepository = (function () {
         });
 
         let abilitiesElement = document.createElement('p');
-        abilitiesElement.innerText = `Abilities: ${pokemonAbilities.join(', ')}`;
+        abilitiesElement.innerHTML = `Abilities: ${pokemonAbilities.join(', ')}`;
       
         // append elements to modal header/body
         modalTitle.appendChild(nameElement);
