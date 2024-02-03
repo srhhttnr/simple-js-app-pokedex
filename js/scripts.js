@@ -117,7 +117,7 @@ let pokemonRepository = (function () {
         let pokemonTypes = [];
 
         pokemon.types.forEach(function (pokemon) {
-          pokemonTypes.push(pokemon.types.name);
+          pokemonTypes.push(pokemon.type.name);
         });
 
         let typesElement = document.createElement('p');
@@ -127,7 +127,7 @@ let pokemonRepository = (function () {
         let pokemonAbilities = [];
 
         pokemon.abilities.forEach(function (pokemon) {
-          pokemonAbilities.push(pokemon.abilities.name);
+          pokemonAbilities.push(pokemon.ability.name);
         });
 
         let abilitiesElement = document.createElement('p');
