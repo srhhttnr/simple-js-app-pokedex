@@ -23,18 +23,18 @@ let pokemonRepository = (function () {
       return pokemonList;
     };
 
-    // function that adds a list item to the pokemon array and displays them as buttons, when clicked showModal() runs
+    // function that adds a list item to the pokemon list and displays them as buttons, when clicked showModal() runs
     function addListItem(pokemon) {
       let pokemonList = document.querySelector('.pokemon-list');
       pokemonList.classList.add('list-group');
       let listItem = document.createElement('li');
-      listItem.classList.add('list-group-item');
+      listItem.classList.add('list-group-item', 'row');
 
       pokemonList.appendChild(listItem);
 
       let button = document.createElement('button');
-      button.innerText = pokemon.name;
-      button.classList.add('pokemon-button', 'btn-primary', 'btn');
+      button.innerHTML = pokemon.name;
+      button.classList.add('btn-lg', 'btn-primary', 'btn');
       button.setAttribute('data-target', '#modal');
       button.setAttribute('data-toggle', 'modal');
 
@@ -85,21 +85,6 @@ let pokemonRepository = (function () {
     // function that shows modal and displays details of pokemon
     function showModal(pokemon) {
       pokemonRepository.loadDetails(pokemon).then(function () {
-        // event listener that hides the modal when the user clicks anywhere off the modal
-        modalContainer.addEventListener('click', (e) => {
-          let target = e.target;
-          if (target === modalContainer) {
-            hideModal();
-          }
-        });
-
-        // event listener that hides the modal when the escape key is pressed
-        window.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hideModal();  
-          }
-        });
-    
         // assign variables to modal elements in html file
         let modalContent = document.querySelector('.modal-content');
         let modalHeader = document.querySelector('.modal-header');
@@ -107,7 +92,6 @@ let pokemonRepository = (function () {
         let modalBody = document.querySelector('.modal-body');
     
         // clear all existing modal content
-        modalContainer.innerHTML = '';
         modalHeader.innerHTML = '';
         modalBody.innerHTML = '';
 
@@ -124,10 +108,10 @@ let pokemonRepository = (function () {
         imageElement.alt = `Image of ${pokemon.name}`;
 
         let heightElement = document.createElement('p');
-        heightElement.innerHTML = `Height: ${pokemon.height} m`;
+        heightElement.innerHTML = `<b> Height: </b> ${pokemon.height} m`;
 
         let weightElement = document.createAttribute('p');
-        weightElement.innerHTML = `Weight: ${pokemon.weight} kg`;
+        weightElement.innerHTML = ` <b> Weight: </b> ${pokemon.weight} kg`;
 
         // function that reads the types of pokemon from the array fetched from api
         let pokemonTypes = [];
@@ -137,7 +121,7 @@ let pokemonRepository = (function () {
         });
 
         let typesElement = document.createElement('p');
-        typesElement.innerHTML = `Type: ${pokemonTypes.join(', ')}`;
+        typesElement.innerHTML = ` <b> Type: </b> ${pokemonTypes.join(', ')}`;
 
         // function that reads the abilities from the array fetched from api
         let pokemonAbilities = [];
@@ -147,7 +131,7 @@ let pokemonRepository = (function () {
         });
 
         let abilitiesElement = document.createElement('p');
-        abilitiesElement.innerHTML = `Abilities: ${pokemonAbilities.join(', ')}`;
+        abilitiesElement.innerHTML = `<b> Abilities: </b> ${pokemonAbilities.join(', ')}`;
       
         // append elements to modal header/body
         modalTitle.appendChild(nameElement);
@@ -159,7 +143,7 @@ let pokemonRepository = (function () {
         modalBody.appendChild(typesElement);
         modalBody.appendChild(abilitiesElement);
 
-        //append modal header/body to modal content
+        // append modal header/body to modal content
         modalContent.appendChild(modalHeader);
         modalContent.appendChild(modalBody);
 
@@ -167,6 +151,21 @@ let pokemonRepository = (function () {
         modalContainer.appendChild(modalContent);
     
         modalContainer.classList.add('is-visible');
+
+        // event listener that hides the modal when the user clicks anywhere off the modal
+        modalContainer.addEventListener('click', (e) => {
+          let target = e.target;
+          if (target === modalContainer) {
+            hideModal();
+          }
+        });
+
+        // event listener that hides the modal when the escape key is pressed
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();  
+          }
+        });
       });
     };
 
