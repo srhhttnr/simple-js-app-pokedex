@@ -28,7 +28,7 @@ let pokemonRepository = (function () {
       let pokemonList = document.querySelector('.pokemon-list');
       pokemonList.classList.add('list-group');
       let listItem = document.createElement('li');
-      listItem.classList.add('list-group-item', 'row');
+      listItem.classList.add('list-group-item', 'col-md-3');
 
       pokemonList.appendChild(listItem);
 
@@ -102,8 +102,10 @@ let pokemonRepository = (function () {
         // add elements to modal
         let nameElement = document.createElement('h1');
         nameElement.innerHTML = pokemon.name;
+        nameElement.classList.add('text-center');
     
         let imageElement = document.createElement('img');
+        imageElement.classList.add('modal-image');
         imageElement.src = pokemon.imageUrl;
         imageElement.alt = `Image of ${pokemon.name}`;
 
