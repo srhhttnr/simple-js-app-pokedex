@@ -70,7 +70,8 @@ let pokemonRepository = (function () {
         return response.json();
       }).then(function (details) {
         // add the details to the item
-        item.imageUrl = details.sprites.front_default;
+        item.frontImageUrl = details.sprites.front_default;
+        item.backImageUrl = details.sprites.back_default;
         item.height = details.height;
         item.weight = details.weight;
         item.types = details.types;
@@ -104,10 +105,15 @@ let pokemonRepository = (function () {
         nameElement.innerHTML = pokemon.name;
         nameElement.classList.add('text-center');
     
-        let imageElement = document.createElement('img');
-        imageElement.classList.add('modal-image');
-        imageElement.src = pokemon.imageUrl;
-        imageElement.alt = `Image of ${pokemon.name}`;
+        let frontImageElement = document.createElement('img');
+        frontImageElement.classList.add('modal-image');
+        frontImageElement.src = pokemon.frontImageUrl;
+        frontImageElement.alt = `Image of front view of ${pokemon.name}`;
+
+        let backImageElement = document.createElement('img');
+        backImageElement.classList.add('modal-image');
+        backImageElement.src = pokemon.backImageUrl;
+        backImageElement.alt - `Image of back view of ${pokemon.name}`;
 
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height} m`;
@@ -139,7 +145,8 @@ let pokemonRepository = (function () {
         modalTitle.appendChild(nameElement);
         modalHeader.appendChild(modalTitle);
         modalHeader.appendChild(closeModalButton);
-        modalBody.appendChild(imageElement);
+        modalBody.appendChild(frontImageElement);
+        modalBody.appendChild(backImageElement);
         modalBody.appendChild(heightElement);
         modalBody.appendChild(weightElement);
         modalBody.appendChild(typesElement);
