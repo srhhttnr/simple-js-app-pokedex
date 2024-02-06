@@ -9,34 +9,38 @@ body {
     background-color: blanchedalmond;
 }
 
-/* formatting headings */
-.navbar-brand .h1 {
+/* formatting navbar */
+.navbar {
+    color: blanchedalmond;
+}
+
+.navbar-brand {
     font-family: var(--font-family-heading);
     font-size: 50px;
     display: flex;
     justify-self: center;
     flex-direction: row;
-    width: 100%;
-    margin: 20px;
+    width: 20%;
+    margin: 0;
 }
 
-.pokemon-list .navbar {
+.navbar {
     font-family: var(--font-family-main);
     font-size: 22px;
 }
 
-ul {
+.navbar-nav {
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    flex-flow: row nowrap;
+    justify-content: space-around;
     align-items: flex-start;
     margin: 20px;
 }
 
 .btn-lg {
     font-family: var(--font-family-main);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 800;
     display: inline-block;
     padding: 20px 50px;
@@ -55,13 +59,20 @@ ul {
     box-shadow: 5px;
 }
 
+.pokemon-list {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 li {
     list-style: none;
 }
 
 .list-group-item {
     background-color: blanchedalmond;
-    border: none;
+    border: brown solid 2px;
+    width: 20%;
+    justify-items: center;
 }
 
 .modal-container {
