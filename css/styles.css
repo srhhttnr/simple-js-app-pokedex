@@ -9,7 +9,7 @@ body {
     background-color: blanchedalmond;
 }
 
-/* formatting navbar */
+/* style navbar */
 .navbar {
     color: blanchedalmond;
 }
@@ -35,53 +35,76 @@ body {
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: flex-start;
-    margin: 20px;
+    margin: 1vw;
 }
 
+/* style buttons */
 .btn-lg {
     font-family: var(--font-family-main);
-    font-size: 25px;
     font-weight: 800;
     display: inline-block;
-    padding: 20px 50px;
-    margin: 2px 2px;
+    padding: 1vw 2.5vw;
     text-align: center;
     text-decoration: none;
     background-color: rgb(191, 89, 42);
     color: black;
-    border: 2px solid maroon;
+    border: .2vw solid maroon;
     cursor: pointer;
     border-radius: 30%;
 }
 
 .btn-lg:hover {
     background-color: brown;
-    box-shadow: 5px;
+    box-shadow: .25vw;
+}
+  
+.close {
+    float: right;
+    appearance: none;
+    border: 0;
+    background: none;
+    color: #777;
+    text-decoration: underline;
+    font-size: 20px;
 }
 
-.pokemon-list {
+.close:hover {
+    cursor: pointer;
+}
+
+
+/* style lists and list items */
+.list-unstyled {
+    /* display: inline-block; */
+    /* width: 25%; */
+    /* text-align: center; */
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 li {
     list-style: none;
+    display: inline-block;
+    margin: .5vw;
+    width: 20vw;
 }
 
 .list-group-item {
     background-color: blanchedalmond;
-    border: brown solid 2px;
-    width: 20%;
+    border: brown solid .15vw;
+    /* width: auto; */
     justify-items: center;
 }
 
+/* style modals */
 .modal-container {
     position: fixed;
-    padding: 20px;
+    padding: 1vw;
     box-sizing: border-box;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background: rgba(0, 0, 0, 0.5);
     
     /* to show it above other content */
@@ -94,10 +117,11 @@ li {
     display: none;
     text-align: center;
 }
+
   
 .modal-container.is-visible {
     position: fixed;
-    padding: 20px;
+    padding: 1vw;
     box-sizing: border-box;
     top: 0;
     width: 100%;
@@ -117,6 +141,9 @@ li {
 
 .text-center {
     font-family: var(--font-family-heading);
+    display: flex;
+    justify-self: center;
+    flex-flow: row nowrap;
 }
 
 .modal-content {
@@ -126,8 +153,9 @@ li {
     background: #FFC300;
     padding: 15px;
     width: 50%;
-    max-width: 50%;
-    transform: translate(50%, 10px);
+    max-width: 100%;
+    justify-self: center;
+    transform: translate(50%, 10%);
 }
 
 .modal-image {
@@ -137,21 +165,19 @@ li {
 .modal-body {
     text-align: center;
 }
-  
-.close {
-    float: right;
-    appearance: none;
-    border: 0;
-    background: none;
-    color: #777;
-    text-decoration: underline;
-    font-size: 20px;
-}
-
-.close:hover {
-    cursor: pointer;
-}
 
 .row {
     justify-content: center;
+}
+
+@media all and (max-width: 600px) {
+    li {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 768px) and (min-width: 600px) {
+    li {
+        width: 30%;
+    }
 }
