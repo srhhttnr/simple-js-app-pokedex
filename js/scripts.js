@@ -70,13 +70,13 @@ let pokemonRepository = (function () {
       let buttonCol = document.createElement('div');
       let button = document.createElement('button');
       button.innerText = pokemon.name;
-      button.classList.add('btn-lg', 'btn-primary', 'btn');
+      button.classList.add('btn-lg', 'btn-primary', 'btn', 'col');
       button.setAttribute('data-target', '#modal');
       button.setAttribute('data-toggle', 'modal');
 
       let imgCol = document.createElement('div');
       let img = document.createElement('img');
-      img.classList.add('img-fluid');
+      img.classList.add('img-fluid', 'row', 'mx-auto');
       img.src = pokemon.frontImageUrl;
       img.alt = `Front view of ${pokemon.name}`;
 
