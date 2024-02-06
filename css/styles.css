@@ -28,7 +28,7 @@ body {
 ul {
     width: 100%;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: flex-start;
     margin: 20px;
@@ -91,7 +91,6 @@ li {
     top: 0;
     width: 100%;
     height: 100%;
-    justify-self: center;
     background: rgba(0, 0, 0, 0.5);
   
     /* to show it above other content */
@@ -116,9 +115,10 @@ li {
     box-sizing: border-box;
     background: #FFC300;
     padding: 15px;
-    width: 50%;
+    width: 100%;
     max-width: 50%;
     text-align: center;
+    transform: translate(50%, 10px);
 }
 
 .modal-image {
@@ -137,4 +137,13 @@ li {
 
 .close:hover {
     cursor: pointer;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    justify-content: center;
 }
