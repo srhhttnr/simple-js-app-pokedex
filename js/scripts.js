@@ -103,6 +103,7 @@ let pokemonRepository = (function () {
         let modalHeader = document.querySelector('.modal-header');
         let modalTitle = document.querySelector('.modal-title');
         let modalBody = document.querySelector('.modal-body');
+        let modalFooter = document.querySelector('.modal-footer');
     
         // clear all existing modal content
         modalTitle.innerHTML = '';
@@ -156,17 +157,18 @@ let pokemonRepository = (function () {
         // append elements to modal header/body
         modalTitle.appendChild(nameElement);
         modalHeader.appendChild(modalTitle);
-        modalHeader.appendChild(closeModalButton);
         modalBody.appendChild(frontImageElement);
         modalBody.appendChild(backImageElement);
         modalBody.appendChild(heightElement);
         modalBody.appendChild(weightElement);
         modalBody.appendChild(typesElement);
         modalBody.appendChild(abilitiesElement);
+        modalFooter.appendChild(closeModalButton);
 
         // append modal header/body to modal content
         modalContent.appendChild(modalHeader);
         modalContent.appendChild(modalBody);
+        modalContent.appendChild(modalFooter);
 
         // append modal content to modal
         modalContainer.appendChild(modalContent);
