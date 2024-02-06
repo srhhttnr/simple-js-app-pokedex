@@ -23,29 +23,6 @@ let pokemonRepository = (function () {
       return pokemonList;
     };
 
-    // function that adds a list item to the pokemon list and displays them as buttons, when clicked showModal() runs
-    function addListItem(pokemon) {
-      let pokemonList = document.querySelector('.pokemon-list');
-      pokemonList.classList.add('list-group');
-      let listItem = document.createElement('li');
-      listItem.classList.add('list-group-item', 'col-md-3');
-
-      pokemonList.appendChild(listItem);
-
-      let button = document.createElement('button');
-      button.innerHTML = pokemon.name;
-      button.classList.add('btn-lg', 'btn-primary', 'btn');
-      button.setAttribute('data-target', '#modal');
-      button.setAttribute('data-toggle', 'modal');
-
-      listItem.appendChild(button);
-
-      // add event listener to button that shows modal when button is clicked
-      button.addEventListener('click', function() {
-        showModal(pokemon);
-      });
-    };
-
     // function that loads each pokemon from the pokemon API
     function loadList() {
       return fetch(apiUrl).then(function (response) {
@@ -81,6 +58,38 @@ let pokemonRepository = (function () {
       });
     }; 
 
+    // function that adds a list item to the pokemon list and displays them as buttons, when clicked showModal() runs
+    function addListItem(pokemon) {
+      let pokemonList = document.querySelector('.pokemon-list');
+      pokemonList.classList.add('list-group');
+      let listItem = document.createElement('li');
+      listItem.classList.add('list-group-item');
+
+      let buttonCol = document.createElement('div');
+      let button = document.createElement('button');
+      button.innerText = pokemon.name;
+      button.classList.add('btn-lg', 'btn-primary', 'btn');
+      button.setAttribute('data-target', '#modal');
+      button.setAttribute('data-toggle', 'modal');
+
+      let imgCol = document.createElement('div');
+      let img = document.createElement('img');
+      img.classList.add('img-fluid');
+      img.src = pokemon.frontImageUrl;
+      img.alt = `Front view of ${pokemon.name}`;
+
+      buttonCol.appendChild(button);
+      imgCol.appendChild(img);
+      listItem.appendChild(buttonCol);
+      listItem.appendChild(imgCol);
+      pokemonList.appendChild(listItem);
+
+      // add event listener to button that shows modal when button is clicked
+      button.addEventListener('click', function() {
+        showModal(pokemon);
+      });
+    };
+
     let modalContainer = document.querySelector('.modal');
 
     // function that shows modal and displays details of pokemon
@@ -106,14 +115,14 @@ let pokemonRepository = (function () {
         nameElement.classList.add('text-center');
     
         let frontImageElement = document.createElement('img');
-        frontImageElement.classList.add('modal-image');
+        frontImageElement.classList.add('img-fluid', 'modal-image');
         frontImageElement.src = pokemon.frontImageUrl;
-        frontImageElement.alt = `Image of front view of ${pokemon.name}`;
+        frontImageElement.alt = `Front view of ${pokemon.name}`;
 
         let backImageElement = document.createElement('img');
         backImageElement.classList.add('modal-image');
         backImageElement.src = pokemon.backImageUrl;
-        backImageElement.alt - `Image of back view of ${pokemon.name}`;
+        backImageElement.alt - `Back view of ${pokemon.name}`;
 
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height} m`;
@@ -175,6 +184,15 @@ let pokemonRepository = (function () {
             hideModal();  
           }
         });
+
+        return {
+          getAll : getAll,
+          add : add,
+          showModal : showModal,
+          addListItem : addListItem,
+          loadList : loadList,
+          loadDetails : loadDetails,
+        };
       });
     };
 
@@ -182,16 +200,6 @@ let pokemonRepository = (function () {
     function hideModal() {
       modalContainer.classList.remove('is-visible');
     };
-
-    // // function that gives you the previous pokemon in array
-    // function previousPokemon(pokemon) {
-
-    // };
-
-    // // function that gives you the next pokemon in array
-    // function nextPokemon(pokemon) {
-
-    // };
 
     // return statements
     return {
