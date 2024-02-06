@@ -32,9 +32,9 @@
       </div>
     </nav>
     <!-- modal for each pokemon when button is clicked -->
-    <div class="modal row" id="modal" tabindex="-1" role="dialog">
+    <div class="modal container" id="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <div class="modal-content col-md-6 col-md-offset-3">
+        <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><!-- pokemon name for modal title goes here --></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <!-- button that closes modal -->
@@ -44,10 +44,18 @@
           <div class="modal-body">
             <!-- pokemon details for modal body go here -->
           </div>
+          <div class="modal-footer"> 
+          </div>
         </div>
       </div>
     </div>    
-    <ul class="pokemon-list row"><!-- list of pokemon as buttons --></ul>
+    <div class="list-container container-fluid">
+      <div class="row">
+        <div class="col">
+          <ul class="pokemon-list list-unstyled"><!-- list of pokemon as buttons --></ul>
+        </div>
+      </div>
+    </div>
     <div class="javascript">
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
