@@ -60,6 +60,8 @@ let pokemonRepository = (function () {
 
     // function that adds a list item to the pokemon list and displays them as buttons, when clicked showModal() runs
     function addListItem(pokemon) {
+      pokemonRepository.loadDetails(pokemon).then(function () {
+
       let pokemonList = document.querySelector('.pokemon-list');
       pokemonList.classList.add('list-group');
       let listItem = document.createElement('li');
@@ -88,7 +90,8 @@ let pokemonRepository = (function () {
       button.addEventListener('click', function() {
         showModal(pokemon);
       });
-    };
+    });
+  }
 
     let modalContainer = document.querySelector('.modal');
 
