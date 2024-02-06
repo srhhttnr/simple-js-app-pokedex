@@ -103,9 +103,8 @@ li {
     display: grid;
     text-align: center;
 }
-  
+
 .text-center {
-    text-align: center;
     font-family: var(--font-family-heading);
 }
 
@@ -115,14 +114,17 @@ li {
     box-sizing: border-box;
     background: #FFC300;
     padding: 15px;
-    width: 100%;
+    width: 50%;
     max-width: 50%;
-    text-align: center;
     transform: translate(50%, 10px);
 }
 
 .modal-image {
     width: 30%;
+}
+
+.modal-body {
+    text-align: center;
 }
   
 .close {
@@ -137,11 +139,6 @@ li {
 
 .close:hover {
     cursor: pointer;
-}
-
-.container {
-    justify-content: center;
-    align-items: center;
 }
 
 .row {
